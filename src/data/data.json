@@ -1,0 +1,30 @@
+[
+    {
+        "filter_name": "company",
+        "options":["Amazon", "Google", "Incresco"]
+    },
+    {
+        "filter_name": "location",
+        "options":["Coimbatore", "Chennai", "Banglore"]
+    },
+    {
+        "filter_name": "date posted",
+        "options":["Last 24 hours", "Last 48 hours", "Last 7 days"]
+    },
+    {
+        "filter_name": "salary range",
+        "options":["3 Lakh+", "6 Lakh+", "10 Lakh+"]
+    },
+    {
+        "filter_name": "skills",
+        "options":["javascript", "Python", "Artificial Intelligence"]
+    },
+    {
+        "filter_name": "experience",
+        "options":["0-2 years", "3-5 years", "5-8 years"]
+    },
+    {
+        "filter_name": "education",
+        "options":["Bachelors", "Masters", "Phd"]
+    }
+]

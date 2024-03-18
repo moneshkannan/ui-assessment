@@ -1,0 +1,54 @@
+.fc__card{
+    background-color: #171C28;
+    color: white;
+}
+
+.fc__header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+
+.fc__underline{
+    border-bottom: 1px solid #242D40 !important;
+}
+
+.fc__card_body{
+    background-color: #171C28;
+}
+
+input.fc__check_box[type='checkbox']{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Adjust size as needed */
+    border: 1px solid white; /* White border */
+    border-radius: 3px; /* Optional: rounded corners */
+    margin-right: 5px; /* Optional: Add space between checkbox and label */
+    position: relative;
+    background-color: transparent; 
+}
+
+input.fc__check_box[type='checkbox']:checked  {
+    background-color: white; /* Fill color when checked */
+}
+
+/* Style the label */
+label.fc__check_box_label {
+    cursor: pointer; /* Show pointer cursor on hover */
+    margin-left: 20px;
+}
+
+.fc__check_box:checked + .fc__check_box_label::before {
+    content: '\2713';
+    font-size: 16px; 
+    color: #E83363; 
+    position: absolute;
+    top: 71%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+}

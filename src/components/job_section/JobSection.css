@@ -1,0 +1,134 @@
+.js__bg_card{
+    width: 906px;
+    height: auto;
+    top: 213px;
+    left: 444px;
+    border-radius: 10px;
+    background-color: #1D2331;
+    color: white;
+    padding-top: 31px;
+    padding-bottom: 56px !important;
+    /* card ku job ku naduvula 24 */
+}
+
+.js__heading{
+    font-weight: bolder;
+}
+
+.js__header{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.js__result_header{
+    font-weight: 300;
+}
+
+.js__sort_head{
+    margin-right: 30px;
+    font-weight: 300;
+}
+
+.js__bg_head{
+    width: 652px;
+    height: auto;
+    top: 244px;
+    left: 476px;
+    border-radius: 10px;
+    border: 1px solid white;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 23.11px;
+    /* margin-top: 31px !important; */
+    margin-left: 32px;
+    /* border-right: none; */
+    /* border-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, white 50%, white 100%); */
+    /* Apply gradient as border image */
+    /* border-image-source: linear-gradient(90deg, #566292 0%, rgba(86, 98, 146, 0) 100%); */
+
+    /* width: auto;
+    height: auto;
+    top: 213px;
+    left: 444px;
+    border-radius: 10px;
+    background-color: #1D2331;
+    border: 1px solid white;
+    */
+}
+
+.js__job_card{
+    width: 844px;
+    height: 204px;
+    margin-left: 34px;
+    margin-top: 24px;
+    background-color: #323C52;
+    border-radius: 12px;
+    position: relative;
+
+}
+
+.js__job_card_sub{
+    position: absolute;
+    width:844px;
+    height:74px;
+    top: 130px;
+    background: #525D7966;
+    border-radius: 0 0 13.725658416748047px 13.725658416748047px;
+    align-items: center;
+    padding: 19px 28px 19px 28px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.js__job_card_head{
+    padding: 22px 25px 22px 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.js__job_card_head_data{
+    display: flex;
+    flex-direction: column;
+    margin-left: 32px;
+}
+
+.js__job_card_head_1{
+    display: flex;
+}
+
+.js__job_card_head_2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.js_apply_btn{
+    border: none;
+    outline: none;
+    width: 170px;
+    height: 36px;
+    top: 465px;
+    left: 1075px;
+    border-radius: 47px;
+    color: white;
+    background-color: #5CA4A9;
+    letter-spacing: 0.5px;
+    margin-right: 24px;
+}
+
+.js__job_card_head_title{
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.js__job_card_head_desc{
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+    white-space: nowrap;
+}

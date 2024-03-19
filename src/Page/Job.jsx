@@ -16,7 +16,8 @@ function Job() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/job/');
+          // 'http://localhost:5000/api/job/'
+            const response = await axios.get('https://incresco-bb.onrender.com/api/job/');
             console.log(response.data)
             setAllJobs(response.data);
             setFilteredJobs(response.data);

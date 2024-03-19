@@ -43,7 +43,7 @@ label.fc__check_box_label {
     margin-left: 20px;
 }
 
-.fc__check_box:checked + .fc__check_box_label::before {
+/* .fc__check_box:checked + .fc__check_box_label::before {
     content: '\2713';
     font-size: 16px; 
     color: #E83363; 
@@ -51,4 +51,20 @@ label.fc__check_box_label {
     top: 71%;
     left: 15%;
     transform: translate(-50%, -50%);
+} */
+
+.fc__clear{
+    /* style={{textDecoration:'none', color:'white !important', fontSize:'12px', fontWeight:'400'}} */
+    text-decoration: underline dotted !important;
+    text-decoration-skip-ink: auto;
+    line-height: 2px;
+    color: white !important;
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: 10px;
+}
+
+.fc__filter{
+    display: flex;
+    align-items: center;
 }

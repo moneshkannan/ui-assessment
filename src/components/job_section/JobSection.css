@@ -21,6 +21,7 @@
     flex-direction: row;
     justify-content: space-between;
     font-size: 20px;
+    margin-bottom: 45px;
 }
 
 .js__result_header{
@@ -124,6 +125,7 @@
     font-weight: 700;
     margin-bottom: 8px;
     font-size: 20px;
+    white-space: nowrap;
 }
 
 .js__job_card_head_desc{

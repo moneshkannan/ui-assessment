@@ -1,30 +1,58 @@
 [
     {
         "filter_name": "company",
-        "options":["Amazon", "Google", "Incresco"]
+        "options": [
+            {"label": "Amazon", "value": "Amazon"},
+            {"label": "Google", "value": "Google"},
+            {"label": "Incresco", "value": "Incresco"}
+        ]
     },
     {
         "filter_name": "location",
-        "options":["Coimbatore", "Chennai", "Banglore"]
+        "options": [
+            {"label": "Coimbatore", "value": "Coimbatore"},
+            {"label": "Chennai", "value": "Chennai"},
+            {"label": "Bangalore", "value": "Bangalore"}
+        ]
     },
     {
         "filter_name": "date posted",
-        "options":["Last 24 hours", "Last 48 hours", "Last 7 days"]
+        "options": [
+            {"label": "Last 24 hours", "value": "24 hours"},
+            {"label": "Last 48 hours", "value": "48 hours"},
+            {"label": "Last 7 days", "value": "7 days"}
+        ]
     },
     {
         "filter_name": "salary range",
-        "options":["3 Lakh+", "6 Lakh+", "10 Lakh+"]
+        "options": [
+            {"label": "3 Lakh+", "value": "3 Lakh+"},
+            {"label": "6 Lakh+", "value": "6 Lakh+"},
+            {"label": "10 Lakh+", "value": "10 Lakh+"}
+        ]
     },
     {
         "filter_name": "skills",
-        "options":["javascript", "Python", "Artificial Intelligence"]
+        "options": [
+            {"label": "JavaScript", "value": "JavaScript"},
+            {"label": "Python", "value": "Python"},
+            {"label": "Artificial Intelligence", "value": "Artificial Intelligence"}
+        ]
     },
     {
         "filter_name": "experience",
-        "options":["0-2 years", "3-5 years", "5-8 years"]
+        "options": [
+            {"label": "0-2 years", "value": "0-2 years"},
+            {"label": "3-5 years", "value": "3-5 years"},
+            {"label": "5-8 years", "value": "5-8 years"}
+        ]
     },
     {
         "filter_name": "education",
-        "options":["Bachelors", "Masters", "Phd"]
+        "options": [
+            {"label": "Bachelors", "value": "Bachelors"},
+            {"label": "Masters", "value": "Masters"},
+            {"label": "Phd", "value": "Phd"}
+        ]
     }
 ]

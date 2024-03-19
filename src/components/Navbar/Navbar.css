@@ -75,6 +75,7 @@ button.round {
 
 .input-container {
     position: relative;
+    left: 163px;
 }
 
 .icon {
@@ -84,7 +85,7 @@ button.round {
     transform: translateY(-50%);
     width: 20px; /* Adjust icon size */
     height: 20px; /* Adjust icon size */
-    background-image: url('../assets/search.svg'); /* Specify the path to your icon */
+    background-image: url('../../assets/search.svg'); /* Specify the path to your icon */
     background-size: cover;
     opacity: 50%;
 }

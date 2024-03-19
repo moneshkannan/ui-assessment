@@ -1,76 +1,80 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
-import './FilterCard.css'
-import downArrow from '../../assets/down_arrow.svg'
+import React, { useState } from 'react';
+import './FilterCard.css';
+import downArrow from '../../assets/down_arrow.svg';
+
+function FilterCard({ filters, onFilter, filter_count }) {
+    const [selectedFilters, setSelectedFilters] = useState({});
+
+    const handleCheckboxChange = (filterName, option, isChecked) => {
+        setSelectedFilters(prevState => {
+            const updatedFilters = { ...prevState };
+            updatedFilters[filterName] = updatedFilters[filterName] || [];
+            if (isChecked) {
+                updatedFilters[filterName].push(option.value);
+            } else {
+                updatedFilters[filterName] = updatedFilters[filterName].filter(item => item !== option.value);
+                if (updatedFilters[filterName].length === 0) {
+                    delete updatedFilters[filterName];
+                }
+            }
+            onFilter(updatedFilters);
+            return updatedFilters;
+        });
+    };
+
+    const clearFilters = () => {
+        setSelectedFilters({});
+        onFilter({});
+    };
 
 
-// const filter_ui = (item, ind) => {
-//     console.log(item)
-//     return <React.Fragment>
-//         <div className='fc__header' data-bs-toggle="collapse" href={`#${item}`} role="button" aria-expanded="false" aria-controls={item} key={ind}>
-//                     <h5 className="card-title">{item.filter_name}</h5>
-//                     <span className="" >
-//                         <img src={downArrow} alt='company'/>
-//                     </span>
-//                 </div>
-//                 {item.options.map((i, n) =>{
-//                     <div className="collapse" id={item.filter_name} key={n}>
-//                     <div className="card-body fc__card_body fc__underline">
-//                         <div>
-//                             <input className='fc__check_box' type='checkbox' id={`company_${n}`} name={`company_${n}`} value={i}/>
-//                             <label className='fc__check_box_label' htmlFor={`company_${n}`}> {i}</label>
-//                         </div>
-//                     </div>
-//                 </div>
-//                 })}
-//     </React.Fragment>
-// }
-
-const filter_ui = (item, index) => {
-    console.log(item);
-    // Replace spaces in filter_name with underscores
-    const id = item.filter_name.replace(/\s+/g, '_');
     return (
-        <React.Fragment key={index}>
-            <div className='fc__header' data-bs-toggle="collapse" href={`#${id}`} role="button" aria-expanded="false" aria-controls={id}>
-                <h5 className="card-title">{item.filter_name}</h5>
-                <span className="">
-                    <img src={downArrow} alt='company'/>
-                </span>
-            </div>
-            {item.options.map((option, i) => (
-                <div className="collapse" id={id} key={i}>
-                    <div className="card-body fc__card_body fc__underline">
-                        <div>
-                            <input className='fc__check_box' type='checkbox' id={`${id}_${i}`} name={`${id}_${i}`} value={option}/>
-                            <label className='fc__check_box_label' htmlFor={`${id}_${i}`}>{option}</label>
-                        </div>
+        <div>
+            <div className="card mb-3 fc__card" style={{ maxWidth: '18rem' }}>
+                <div className='fc__header fc__underline'>
+                    <div className="card-header">Filter by</div>
+                    <div className='fc__filter'>
+                        <div style={{fontSize:'12px', fontWeight:'400', left:'15px'}}> {filter_count > 0 && `${filter_count} Filter applied`} </div>
+                        <div > {filter_count > 0 && <a className='fc__clear' href='#' onClick={clearFilters}> Clear all</a>} </div>
                     </div>
                 </div>
-            ))}
-            <br/>
-        </React.Fragment>
-    );
-};
-
-
-function FilterCard({filters_data}) {
-  return (
-    <div>
-        <div className="card mb-3 fc__card" style={{maxWidth: '18rem'}} >
-            <div className='fc__header fc__underline'>
-                <div className="card-header">Filter by</div>
-                <div> 3 Filter applied</div>
-            </div>
-            <div className="card-body">
-                {filters_data.length > 0 && filters_data.map((item, ind) =>{
-                    return filter_ui(item, ind)
-                })}
-                
+                <div className="card-body">
+                    {filters.map((item, index) => {
+                        const id = item.filter_name.replace(/\s+/g, '_');
+                        return (
+                            <React.Fragment key={index}>
+                                <div className='fc__header' data-bs-toggle="collapse" href={`#${id}`} role="button" aria-expanded="false" aria-controls={id}>
+                                    <h5 className="card-title">{item.filter_name}</h5>
+                                    <span className="">
+                                        <img src={downArrow} alt='company' />
+                                    </span>
+                                </div>
+                                {item.options.map((option, i) => (
+                                    <div className="collapse" id={id} key={i}>
+                                        <div className="card-body fc__card_body fc__underline">
+                                            <div key={option.value}>
+                                                <input
+                                                    className='fc__check_box'
+                                                    type='checkbox'
+                                                    id={`${id}_${i}`}
+                                                    name={`${id}_${i}`}
+                                                    onChange={(e) => handleCheckboxChange(item.filter_name, option, e.target.checked)}
+                                                    checked={selectedFilters[item.filter_name]?.includes(option.value) || false}
+                                                />
+                                                <label className='fc__check_box_label' htmlFor={`${item.filter_name}_${i}`}>{option.label}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                                <br />
+                            </React.Fragment>
+                        );
+                    })}
+                </div>
             </div>
         </div>
-    </div>
-  )
+    );
 }
 
-export default FilterCard
+export default FilterCard;

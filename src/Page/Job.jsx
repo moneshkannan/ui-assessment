@@ -8,7 +8,6 @@ import { posted_date_range } from "../helpers/helper";
 function Job() {
     const [allJobs, setAllJobs] = useState([]);
     const [filteredJobs, setFilteredJobs] = useState([]);
-    const [filterCount, setFilterCount] = useState(0)
 
     useEffect(() => {
         fetchData();
@@ -18,6 +17,7 @@ function Job() {
         try {
           // 'http://localhost:5000/api/job/'
             const response = await axios.get('https://incresco-bb.onrender.com/api/job/');
+            // const response = await axios.get('http://localhost:5000/api/job/');
             console.log(response.data)
             setAllJobs(response.data);
             setFilteredJobs(response.data);
@@ -108,7 +108,6 @@ function Job() {
         }
         let optimizedFilters = [...new Set(all_filter_data)] 
         setFilteredJobs(all_filter_data.length > 0 ? optimizedFilters : allJobs);
-        setFilterCount(optimizedFilters.length)
     }, [allJobs]);
 
     return (
@@ -116,7 +115,7 @@ function Job() {
             <br />
             <div className="row">
                 <div className="col-sm-4">
-                    <FilterCard filters={filters} clear_filter={setFilteredJobs} filter_count={filterCount} onFilter={handleFilter} />
+                    <FilterCard filters={filters} clear_filter={setFilteredJobs} onFilter={handleFilter} />
                 </div>
                 <div className="col-sm-8">
                     <JobSection allJobs={filteredJobs} />

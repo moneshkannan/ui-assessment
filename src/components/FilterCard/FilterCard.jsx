@@ -1,23 +1,32 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './FilterCard.css';
 import downArrow from '../../assets/down_arrow.svg';
 
-function FilterCard({ filters, onFilter, filter_count }) {
+function FilterCard({ filters, onFilter }) {
     const [selectedFilters, setSelectedFilters] = useState({});
+    const [currentFilterCount, setCurrentFilterCount] = useState(0);
+
+    useEffect(() => {
+        console.log({selectedFilters},Object.values(selectedFilters).flat().length)
+        setCurrentFilterCount(Object.values(selectedFilters).flat().length);
+    }, [selectedFilters]);
 
     const handleCheckboxChange = (filterName, option, isChecked) => {
         setSelectedFilters(prevState => {
             const updatedFilters = { ...prevState };
             updatedFilters[filterName] = updatedFilters[filterName] || [];
             if (isChecked) {
-                updatedFilters[filterName].push(option.value);
+                if (!updatedFilters[filterName].includes(option.value)) {
+                    updatedFilters[filterName].push(option.value);
+                }
             } else {
                 updatedFilters[filterName] = updatedFilters[filterName].filter(item => item !== option.value);
                 if (updatedFilters[filterName].length === 0) {
                     delete updatedFilters[filterName];
                 }
             }
+            console.log({updatedFilters})
             onFilter(updatedFilters);
             return updatedFilters;
         });
@@ -35,8 +44,8 @@ function FilterCard({ filters, onFilter, filter_count }) {
                 <div className='fc__header fc__underline'>
                     <div className="card-header">Filter by</div>
                     <div className='fc__filter'>
-                        <div style={{fontSize:'12px', fontWeight:'400', left:'15px'}}> {filter_count > 0 && `${filter_count} Filter applied`} </div>
-                        <div > {filter_count > 0 && <a className='fc__clear' href='#' onClick={clearFilters}> Clear all</a>} </div>
+                        <div style={{fontSize:'12px', fontWeight:'400', left:'15px'}}> {currentFilterCount > 0 && `${currentFilterCount} Filter applied`} </div>
+                        <div > {currentFilterCount > 0 && <a className='fc__clear' href='#' onClick={clearFilters}> Clear all</a>} </div>
                     </div>
                 </div>
                 <div className="card-body">
